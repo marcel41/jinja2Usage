@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Jinja2 Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1>{{ h1 }}</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Lectures</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for module in modulesToPrint %}
+      {% for i in range(module['pathXD']| length) %}
+        <tr> <th scope"col"> <a href="{{ module['pathXD'][i] }}" download> {{ module['labs'][i] }}</a> </th> </tr>
+      {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Labs</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for module in modulesToPrint %}
+        <tr> <th scope"col"> <a href="{{ module['pathLecture']}}" download> {{ module['lectures'] }}</a> </th> </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>
